@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody2D rb2D;
     private GameObject myGameObjectparent;
+    private InvaderSpawner spawner;
+    
     private string myTag;
 
     [SerializeField] public int playerVerticalSpeed = 10;
@@ -19,6 +21,8 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        var spawnerObject = GameObject.FindGameObjectWithTag("Spawner");
+        spawner = spawnerObject.GetComponent<InvaderSpawner>();
         
         rb2D = GetComponent<Rigidbody2D>();
         myTag = transform.parent.gameObject.tag;
@@ -46,6 +50,8 @@ public class Bullet : MonoBehaviour
         else if (other.CompareTag("Bullet")) OnDestroy();
 
         other.SendMessage("OnDestroy");
+
+        spawner.activeInvaderList.Remove(other.GetComponent<Invader>());
         
         OnDestroy();
         

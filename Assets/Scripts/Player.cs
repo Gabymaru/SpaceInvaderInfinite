@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2D;
     private SpriteRenderer mySpriteRenderer;
 
-    [SerializeField] float screenWidthLimit = 4;
+    [SerializeField] float screenWidthLimit = 4.2f;
 
     private bool goingRight;
     
@@ -46,9 +46,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void onShoot(InputAction.CallbackContext obj)
+    public void OnShoot(InputAction.CallbackContext obj)
     {
-
         if (obj.performed)
         {
             Instantiate(ammo, childTransform.position, childTransform.rotation, childTransform.parent.transform);
@@ -66,16 +65,9 @@ public class Player : MonoBehaviour
             rb2D.velocity = new Vector2(horizontalSpeed * direction, 0);
         }
 
-        if (rb2D.position.x >= screenWidthLimit && goingRight)
+        if (rb2D.position.x >= screenWidthLimit && goingRight || rb2D.position.x <= -screenWidthLimit && !goingRight)
         {
-            
             rb2D.velocity = new Vector2(0, 0);
-
-        }else if (rb2D.position.x <= -screenWidthLimit && !goingRight)
-        {
-            
-            rb2D.velocity = new Vector2(0, 0);
-            
         }
     }
 }
