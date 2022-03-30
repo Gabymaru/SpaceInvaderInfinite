@@ -445,6 +445,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6a2141d0-aa21-4d47-92d2-95bf14457e56
     m_ActionName: Movements/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 562990116}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnQuit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 80e88cd7-b930-4280-99d9-d68de6ccad27
+    m_ActionName: Movements/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movements

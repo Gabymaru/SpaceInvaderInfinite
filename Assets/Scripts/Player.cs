@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = System.Object;
 
 public class Player : MonoBehaviour
 {
@@ -52,6 +53,14 @@ public class Player : MonoBehaviour
         {
             Instantiate(ammo, childTransform.position, childTransform.rotation, childTransform.parent.transform);
 
+        }
+    }
+
+    public void OnQuit(InputAction.CallbackContext obj)
+    {
+        if (obj.performed)
+        {
+            Application.Quit();
         }
     }
 
